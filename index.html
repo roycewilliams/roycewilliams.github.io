@@ -14,57 +14,29 @@
 <body>
 
     <header>
-        <h1>Welcome to My GitHub Pages</h1>
+        <h1>Selected GitHub pages</h1>
     </header>
 
     <main>
         <section>
-            <h2>About Me</h2>
-            <p>This section is for static, manually maintained content. You can write about your skills, interests, or anything you like. It won't change unless you edit this file directly.</p>
+            <h2>About me</h2>
+            <p>See <a href="https://github.com/roycewilliams/">github.com/roycewilliams/</a>
         </section>
 
         <section>
-            <h2>My GitHub Projects</h2>
+            <h2>Selected GitHub projects</h2>
             <ul id="projects-container" class="project-list">
-                </ul>
+                <li><a href="https://github.com/roycewilliams/apt-https-default-ideas">apt-https-default-ideas</a> - brainstorming on how to encourage <kbd>apt</kbd> towards HTTPS</li>
+                <li><a href="https://github.com/roycewilliams/aws-ip-cidr-ranges-compacted">aws-ip-cidr-ranges-compacted</a> - Pull Amazon's list of AWS CIDR ranges, compact them on contiguous bit boundaries, and publish in various forms.</li>
+                <li><a href="https://github.com/roycewilliams/callattendant-resources">callattendant-resources</a> - grab-bag of <a href="https://github.com/thess/callattendant">callattendant</a>-related materials</li>
+                <li><a href="https://github.com/roycewilliams/cidr-pipes">cidr-pipes</a> - pipe-friendly command line utilities for managing lists of IPs and CIDR blocks</li>
+                <li><a href="https://github.com/roycewilliams/hashcat-package-monitor">hashcat-package-monitor</a> - generate RSS when Repology data changes for <a href="https://github.com/hashcat/hashcat">hashcat</a> (feed info <a href="https://roycewilliams.github.io/hashcat-package-monitor/">here</a></li>
+                <li><a href="https://github.com/roycewilliams/iana-whois-conf">iana-whois-conf</a> - scrape WHOIS serves for all TLDs for whois.conf use</li>
+                <li><a href="https://github.com/roycewilliams/kens-salty-rainbow"><kbd>ken</kbd>'s salty rainbow</a> - an archive of descrypt hashes for common non-personal passwords</li>
+            </ul>
         </section>
     </main>
 
-    <script>
-        // Fetch repositories from the GitHub API and display them
-        const username = 'roycewilliams'; // Change to your GitHub username
-        const projectsContainer = document.getElementById('projects-container');
-
-        fetch(`https://api.github.com/users/${username}/repos`)
-            .then(response => response.json())
-            .then(repositories => {
-                repositories.forEach(repo => {
-                    // Create a list item for each repository
-                    const listItem = document.createElement('li');
-
-                    // Create a link to the repository's GitHub Pages or main repository page
-                    const repoLink = document.createElement('a');
-                    repoLink.href = repo.homepage || repo.html_url;
-                    repoLink.textContent = repo.name;
-                    repoLink.target = "_blank"; // Open in a new tab
-
-                    // Add a description if available
-                    const descriptionSpan = document.createElement('span');
-                    descriptionSpan.textContent = repo.description ? ` - ${repo.description}` : '';
-
-                    // Append the elements to the list item
-                    listItem.appendChild(repoLink);
-                    listItem.appendChild(descriptionSpan);
-
-                    // Append the list item to the container
-                    projectsContainer.appendChild(listItem);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching repositories:', error);
-                projectsContainer.innerHTML = '<li>Could not load projects. Please check your username and try again.</li>';
-            });
-    </script>
 
 </body>
 </html>
